@@ -1,0 +1,54 @@
+﻿@page "/"
+@inject BooksClient BooksClient
+
+<PageTitle>Home</PageTitle>
+
+@if(books is null){
+    <p><em>Loading...</em></p>
+}else{
+    <div class="my-4 w-full ">
+
+        <div class="flex justify-between place-items-center py-1">
+            <h1 class = "font-semibold text-xl">
+            Catalog</h1>
+
+            <button type="button" class="px-8 py-2 font-semibold rounded bg-slate-800 hover:bg-slate-700 transition-all .05 ease-in text-slate-50">Add Book</button>
+        </div>
+
+
+        <table class="w-full table-auto border shadow rounded-md"> 
+            <thead>
+                <tr class="border bg-slate-100">
+                <th class="text-left px-4 py-2 font-medium text-gray-700 bg-gray-200">Id</th>
+                <th class="text-center px-4 py-2 font-medium text-gray-700 bg-gray-200">Title</th>
+                <th class="text-right px-4 py-2 font-medium text-gray-700 bg-gray-200">Author(s)</th>
+                <th class="text-right px-4 py-2 font-medium text-gray-700 bg-gray-200">Price</th>
+                <th class="text-right px-4 py-2 font-medium text-gray-700 bg-gray-200">Published Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @* rendering books from server *@
+                @foreach (var book in books){
+                    <tr class="hover:bg-slate-100 bg-white">
+                        <td class="px-4 py-2 border">@book.Id</td>
+                        <td class="px-4 py-2 border">@book.Title</td>
+                        <td class="px-4 py-2 border">@book.Authors</td>
+                        <td class="px-4 py-2 border text-right">@book.Price.ToString("C")</td>
+                        <td class="px-4 py-2 border">@book.PublishedDate</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+@code{
+    @* Fetch books from server *@
+
+    private List<Book>? books;
+
+    protected override void OnInitialized(){
+        books = BooksClient.GetBooks();
+    }
+    
+}
