@@ -27,3 +27,4 @@ C:\Users\En_coded\Desktop\Projects\BooksInventorySystem\BooksInventorySystem\obj
 C:\Users\En_coded\Desktop\Projects\BooksInventorySystem\BooksInventorySystem\obj\Debug\net8.0\BooksInventorySystem.pdb
 C:\Users\En_coded\Desktop\Projects\BooksInventorySystem\BooksInventorySystem\obj\Debug\net8.0\BooksInventorySystem.genruntimeconfig.cache
 C:\Users\En_coded\Desktop\Projects\BooksInventorySystem\BooksInventorySystem\obj\Debug\net8.0\ref\BooksInventorySystem.dll
+C:\Users\En_coded\Desktop\Projects\BooksInventorySystem\BooksInventorySystem\obj\Debug\net8.0\BooksInventorySystem.sourcelink.json

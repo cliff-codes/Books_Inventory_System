@@ -66,5 +66,20 @@ public class BooksClient
     //providing access to books 
     public List<Book> GetBooks() => books;
 
+    // method to add a new book to existing catalog
+    public void AddBook( BookDetails book){
+        //new book
+        var newBook = new Book{
+            Id = books.Count + 1,
+            Title = book.Title,
+            Authors = book.Authors,
+            Genre = book.Genre,
+            PublishedDate = book.PublishedDate,
+            Price = book.Price
+        };
+
+        //add new book to catalog
+        books.Add(newBook);
+    }
 
 }

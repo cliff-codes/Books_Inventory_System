@@ -12,7 +12,9 @@
             <h1 class = "font-semibold text-xl">
             Catalog</h1>
 
-            <button type="button" class="px-8 py-2 font-semibold rounded bg-slate-800 hover:bg-slate-700 transition-all .05 ease-in text-slate-50">Add Book</button>
+            <a href="/addbook">
+                <button type="button" class="px-8 py-2 font-semibold rounded bg-slate-800 hover:bg-slate-700 transition-all .05 ease-in text-slate-50">Add Book</button>
+            </a>
         </div>
 
 
@@ -51,4 +53,7 @@
         books = BooksClient.GetBooks();
     }
     
+
+    @* routing paths *@
+    private string addBookPageUrl = $"/addbook";
 }

@@ -1,0 +1,92 @@
+﻿@page "/addbook"
+
+
+@inject BooksClient BookClient
+@inject NavigationManager NavigationManager
+
+@if(book is null){
+    <p><em>Loading...</em></p>
+}else{
+    <section class="mt-4">
+        <h3 class="font-semibold text-center">Add Book</h3>
+
+        @* form to add a new book or edit an existing book*@
+        <EditForm Model="@book" FormName="editBook" OnValidSubmit="HandleSubmit">
+            
+            <DataAnnotationsValidator/>
+            <div class="my-2">
+                <label for="title">Title</label>
+                <InputText @bind-Value = "book.Title" type="title" class="form-control" id="title" placeholder="Book Title"/>
+                <ValidationMessage For="() => book.Title"/>
+            </div>
+            <div class="my-2">
+                <label for="author">Author</label>
+                <InputText @bind-Value = "book.Authors"  class="form-control" id="author" placeholder="Name of Author" />
+                <ValidationMessage For="() => book.Authors"/>
+            </div>
+
+            <div class="my-2">
+                <label for="price">Price</label>
+                <InputNumber @bind-Value = "book.Price" class="form-control" id="price"/>
+                <ValidationMessage For="() => book.Price"/>
+            </div>
+
+            <div class="my-2">
+                <label for="publishedDate">Published Date</label>
+                <InputDate @bind-Value = "book.PublishedDate" class="form-control" id="publishedDate" />
+                <ValidationMessage For="() => book.PublishedDate"/>
+            </div>
+
+            <div class="flex gap-2 my-3">
+                <label for="genre">Genre:</label>
+                <div class="bg-slate-200">
+                    <InputSelect @bind-Value = "book.Genre" class="form-select" TValue="string">
+                        
+                        <option>Science Fiction</option>
+                        <option>Fantasy</option>
+                        <option>Science Fiction</option>
+                    </InputSelect>
+                    <ValidationMessage For="() => book.Genre"/>
+                </div>
+            </div>
+
+            
+            <button type="submit" class="btn btn-primary w-full">Save Book</button>
+
+            <div class="w-full flex justify-center">
+                 <div>
+                    <a role="button" href="/" class="btn btn-secondary mt-2">Cancel</a>
+                 </div>
+            </div>
+        </EditForm>
+    </section>
+}
+
+
+@code {
+    
+    [SupplyParameterFromForm]
+    private BookDetails? book {get; set;}
+
+    protected override void OnParametersSet(){
+        if(book is not null){
+            return;
+        }
+
+        
+        book = new(){
+            Title = string.Empty,
+            Authors = string.Empty,
+            Genre = string.Empty,
+            PublishedDate = DateOnly.FromDateTime(DateTime.UtcNow)
+        };
+    }
+
+    private void HandleSubmit(){
+        ArgumentNullException.ThrowIfNull(book);
+        Console.WriteLine(book.Title);
+        BookClient.AddBook(book);
+        
+        NavigationManager.NavigateTo("/");
+    }
+}
