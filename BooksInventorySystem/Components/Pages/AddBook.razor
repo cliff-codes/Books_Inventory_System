@@ -1,8 +1,10 @@
 ﻿@page "/addbook"
+@page "/addbook/{Id:int}"
 
 
 @inject BooksClient BookClient
 @inject NavigationManager NavigationManager
+
 
 @if(book is null){
     <p><em>Loading...</em></p>
@@ -37,7 +39,7 @@
                 <ValidationMessage For="() => book.PublishedDate"/>
             </div>
 
-            <div class="flex gap-2 my-3">
+            @* <div class="flex gap-2 my-3">
                 <label for="genre">Genre:</label>
                 <div class="bg-slate-200">
                     <InputSelect @bind-Value = "book.Genre" class="form-select" TValue="string">
@@ -48,7 +50,7 @@
                     </InputSelect>
                     <ValidationMessage For="() => book.Genre"/>
                 </div>
-            </div>
+            </div> *@
 
             
             <button type="submit" class="btn btn-primary w-full">Save Book</button>
@@ -60,32 +62,45 @@
             </div>
         </EditForm>
     </section>
-}
+} 
 
 
 @code {
+
+    [Parameter]
+    public int Id {get; set;} 
     
     [SupplyParameterFromForm]
-    private BookDetails? book {get; set;}
+    private Book? book {get; set;}
 
     protected override void OnParametersSet(){
+        
         if(book is not null){
             return;
         }
-
-        
-        book = new(){
-            Title = string.Empty,
-            Authors = string.Empty,
-            Genre = string.Empty,
-            PublishedDate = DateOnly.FromDateTime(DateTime.UtcNow)
-        };
+        if(Id != 0){
+            book = BookClient.GetBook(Id);
+        }
+        else{
+            book = new(){
+                Title = string.Empty,
+                Authors = string.Empty,
+                PublishedDate = DateOnly.FromDateTime(DateTime.UtcNow)
+            };
+        }
     }
 
     private void HandleSubmit(){
         ArgumentNullException.ThrowIfNull(book);
         Console.WriteLine(book.Title);
-        BookClient.AddBook(book);
+        
+        if(Id == 0 ){
+            @* add a newly created book *@
+            BookClient.AddBook(book);
+        }else{
+            @* update book *@
+            Console.WriteLine($"Updating book{Id}");
+        }
         
         NavigationManager.NavigateTo("/");
     }

@@ -3,10 +3,14 @@ namespace BooksInventorySystem;
 
 public class Book
 {
-    public required int Id {get; set;}
+    public int Id {get; set;}
+    [Required]
     public required string Title {get; set;}
+    [Required]
     public required string Authors {get; set;}
-    public required decimal Price {get; set;}
-    public required string Genre {get; set;}
+    [Required]
+    [Range(1, 5000)]
+    public decimal Price {get; set;}
+
     public required DateOnly PublishedDate {get; set;}
 }
