@@ -1,4 +1,6 @@
-﻿namespace BooksInventorySystem;
+﻿using System.Runtime.InteropServices;
+
+namespace BooksInventorySystem;
 
 public class BooksClient
 {
@@ -89,6 +91,14 @@ public class BooksClient
             existingBook.Authors = updatedBook.Authors;
             existingBook.Price = updatedBook.Price;
             existingBook.PublishedDate = updatedBook.PublishedDate;
+        }
+    }
+
+
+    public void DeleteBook(int Id){
+        var bookToRemove = GetBook(Id);
+        if(bookToRemove is not null){
+            books.Remove(bookToRemove);
         }
     }
 

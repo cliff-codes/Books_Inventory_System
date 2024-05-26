@@ -28,3 +28,6 @@ C:\Users\En_coded\Desktop\Projects\BooksInventorySystem\BooksInventorySystem\obj
 C:\Users\En_coded\Desktop\Projects\BooksInventorySystem\BooksInventorySystem\obj\Debug\net8.0\BooksInventorySystem.genruntimeconfig.cache
 C:\Users\En_coded\Desktop\Projects\BooksInventorySystem\BooksInventorySystem\obj\Debug\net8.0\ref\BooksInventorySystem.dll
 C:\Users\En_coded\Desktop\Projects\BooksInventorySystem\BooksInventorySystem\obj\Debug\net8.0\BooksInventorySystem.sourcelink.json
+C:\Users\En_coded\Desktop\Projects\BooksInventorySystem\BooksInventorySystem\bin\Debug\net8.0\BlazorBootstrap.dll
+C:\Users\En_coded\Desktop\Projects\BooksInventorySystem\BooksInventorySystem\obj\Debug\net8.0\BooksInventorySystem.csproj.AssemblyReference.cache
+C:\Users\En_coded\Desktop\Projects\BooksInventorySystem\BooksInventorySystem\obj\Debug\net8.0\BooksInv.BD0D70A5.Up2Date
