@@ -80,4 +80,16 @@ public class BooksClient
         return book;
     }
 
+    //update an existing book
+    public void UpdateBook(int Id, Book updatedBook){
+        Book? existingBook = GetBook(Id);
+
+        if(existingBook is not null){
+            existingBook.Title = updatedBook.Title;
+            existingBook.Authors = updatedBook.Authors;
+            existingBook.Price = updatedBook.Price;
+            existingBook.PublishedDate = updatedBook.PublishedDate;
+        }
+    }
+
 }

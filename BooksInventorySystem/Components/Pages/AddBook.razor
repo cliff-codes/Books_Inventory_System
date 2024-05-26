@@ -99,7 +99,7 @@
             BookClient.AddBook(book);
         }else{
             @* update book *@
-            Console.WriteLine($"Updating book{Id}");
+            BookClient.UpdateBook(Id, book);
         }
         
         NavigationManager.NavigateTo("/");
