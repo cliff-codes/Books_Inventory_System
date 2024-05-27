@@ -39,18 +39,7 @@
                 <ValidationMessage For="() => book.PublishedDate"/>
             </div>
 
-            @* <div class="flex gap-2 my-3">
-                <label for="genre">Genre:</label>
-                <div class="bg-slate-200">
-                    <InputSelect @bind-Value = "book.Genre" class="form-select" TValue="string">
-                        
-                        <option>Science Fiction</option>
-                        <option>Fantasy</option>
-                        <option>Science Fiction</option>
-                    </InputSelect>
-                    <ValidationMessage For="() => book.Genre"/>
-                </div>
-            </div> *@
+           
 
             
             <button type="submit" class="btn btn-primary w-full">Save Book</button>
@@ -74,7 +63,6 @@
     private Book? book {get; set;}
 
     protected override void OnParametersSet(){
-        
         if(book is not null){
             return;
         }

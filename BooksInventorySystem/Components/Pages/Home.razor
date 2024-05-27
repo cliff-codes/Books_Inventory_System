@@ -90,7 +90,6 @@
     private void OnSearchTextChanged(ChangeEventArgs e)
     {
         Searchtext = e.Value?.ToString();
-        Console.WriteLine(Searchtext);
         if(Searchtext is not null){
             books = BooksClient.SearchBook(Searchtext);
         }
