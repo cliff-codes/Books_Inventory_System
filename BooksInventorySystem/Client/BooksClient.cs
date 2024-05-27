@@ -94,6 +94,17 @@ public class BooksClient
         }
     }
 
+    //search book by author name or book title
+    public List<Book> SearchBook(string searchText){
+         if (string.IsNullOrEmpty(searchText))
+        {
+            return books;
+        }
+        List<Book> filteredBooks = books.Where(book => book.Title.ToLower().Contains(searchText.ToLower())).ToList();
+
+        return filteredBooks;
+    }
+
 
     public void DeleteBook(int Id){
         var bookToRemove = GetBook(Id);
