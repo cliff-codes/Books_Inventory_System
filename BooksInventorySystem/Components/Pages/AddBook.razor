@@ -34,11 +34,16 @@
             </div>
 
             <div class="my-2">
+                <label for="quantity">Quantity</label>
+                <InputNumber @bind-Value = "book.Quantity" class="form-control" id="qunatity" />
+                <ValidationMessage For="() => book.Quantity"/>
+            </div>
+
+            <div class="my-2">
                 <label for="publishedDate">Published Date</label>
                 <InputDate @bind-Value = "book.PublishedDate" class="form-control" id="publishedDate" />
                 <ValidationMessage For="() => book.PublishedDate"/>
             </div>
-
            
 
             

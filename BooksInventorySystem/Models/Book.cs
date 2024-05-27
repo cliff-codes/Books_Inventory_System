@@ -13,4 +13,7 @@ public class Book
     public decimal Price {get; set;}
 
     public required DateOnly PublishedDate {get; set;}
+
+    [Required(ErrorMessage = "Please enter the quantity you have in inventory")]
+    public int Quantity {get; set;}
 }

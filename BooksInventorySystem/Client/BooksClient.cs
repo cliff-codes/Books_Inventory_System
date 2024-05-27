@@ -12,49 +12,56 @@ public class BooksClient
             Title = "Pride and Prejudice",
             Authors = "Jane Austen",
             PublishedDate = new DateOnly(1813, 01, 23),
-            Price = 3.99M 
+            Price = 3.99M,
+            Quantity = 46
         },
         new(){
             Id = 2,
             Title = "The Lord of the Rings: The Fellowship of the Ring",
             Authors = "J.R.R. Tolkien",
             PublishedDate = new DateOnly(1954, 11, 13),
-            Price = 12.99M 
+            Price = 12.99M,
+            Quantity = 67
         },
         new(){
             Id = 3,
             Title = "To Kill a Mockingbird",
             Authors = "Harper Lee",
             PublishedDate = new DateOnly(1960, 04, 12),        
-            Price = 13.99M 
+            Price = 13.99M ,
+            Quantity = 65
         },
         new(){
             Id = 4,
             Title = "The Hitchhiker's Guide to the Galaxy",
             Authors = "Douglas Adams",
             PublishedDate = new DateOnly(1979, 01, 23),         
-            Price = 9.99M 
+            Price = 9.99M,
+            Quantity = 76,
         },
         new(){
             Id = 5,
             Title = "One Hundred Years of Solitude",
             Authors = "Gabriel García Márquezn",
             PublishedDate = new DateOnly(1967, 12, 03),        
-            Price = 11.99M 
+            Price = 11.99M,
+            Quantity = 30,
         },
         new(){
             Id = 6,
             Title = "Frankenstein",
             Authors = "Mary Shelley",
             PublishedDate = new DateOnly(1818, 01, 23),
-            Price = 6.99M 
+            Price = 6.99M,
+            Quantity = 19, 
         },
         new(){
             Id = 7,
             Title = "Dune",
             Authors = "Frank Herbert",
             PublishedDate = new DateOnly(1813, 01, 23),
-            Price = 14.99M 
+            Price = 14.99M,
+            Quantity = 208, 
         },
     ];
 
@@ -69,7 +76,8 @@ public class BooksClient
             Title = book.Title,
             Authors = book.Authors,
             PublishedDate = book.PublishedDate,
-            Price = book.Price
+            Price = book.Price,
+            Quantity = book.Quantity
         };
 
         //add new book to catalog
@@ -91,10 +99,11 @@ public class BooksClient
             existingBook.Authors = updatedBook.Authors;
             existingBook.Price = updatedBook.Price;
             existingBook.PublishedDate = updatedBook.PublishedDate;
+            existingBook.Quantity = updatedBook.Quantity;
         }
     }
 
-    //search book by author name or book title
+    //search book by book title
     public List<Book> SearchBook(string searchText){
          if (string.IsNullOrEmpty(searchText))
         {

@@ -36,6 +36,7 @@
                 <th class="text-center px-4 py-2 font-medium text-gray-700 bg-gray-200">Title</th>
                 <th class="text-right px-4 py-2 font-medium text-gray-700 bg-gray-200">Author(s)</th>
                 <th class="text-right px-4 py-2 font-medium text-gray-700 bg-gray-200">Price</th>
+                <th class="text-right px-4 py-2 font-medium text-gray-700 bg-gray-200">Qty</th>
                 <th class="text-right px-4 py-2 font-medium text-gray-700 bg-gray-200">Published Date</th>
                 <th></th>
                 </tr>
@@ -48,6 +49,7 @@
                         <td class="px-4 py-2 border">@book.Title</td>
                         <td class="px-4 py-2 border">@book.Authors</td>
                         <td class="px-4 py-2 border text-right">@book.Price.ToString("C")</td>
+                        <td class="px-4 py-2 border">@book.Quantity</td>
                         <td class="px-4 py-2 border">@book.PublishedDate</td>
                         <td class="px-4 py-2  flex place-items-center h-full justify-center ">
                            <a href="@bookUrl(book.Id)" class="btn btn-primary me-2" role="button">
