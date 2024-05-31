@@ -10,7 +10,7 @@
     <p><em>Loading...</em></p>
 }else{
     <section class="mt-4">
-        <h3 class="font-semibold text-center">Add Book</h3>
+        <h3 class="font-semibold text-center">@title</h3>
 
         @* form to add a new book or edit an existing book*@
         <EditForm Model="@book" FormName="editBook" OnValidSubmit="HandleSubmit">
@@ -60,7 +60,9 @@
 
 
 @code {
-
+    
+    private string title {get; set;}
+    
     [Parameter]
     public int Id {get; set;} 
     
@@ -72,9 +74,11 @@
             return;
         }
         if(Id != 0){
+            title = "Edit Book";
             book = BookClient.GetBook(Id);
         }
         else{
+            title = "Add Book";
             book = new(){
                 Title = string.Empty,
                 Authors = string.Empty,
